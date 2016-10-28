@@ -6,10 +6,6 @@ app = Flask(__name__)
 mysql = MySQL()
 app = Flask(__name__)
 app.config.from_envvar('CONFIG')
-# app.config['MYSQL_DATABASE_USER'] = 'root'
-# app.config['MYSQL_DATABASE_PASSWORD'] = 'LindenHof11'
-# app.config['MYSQL_DATABASE_DB'] = 'menagerie'
-# app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 
 @app.route("/")
