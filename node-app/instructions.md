@@ -1,3 +1,6 @@
+# Docker build command
+
+docker build -t mencywoo/mency-node .
 
 # Docker run command
 
