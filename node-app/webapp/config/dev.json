@@ -1,3 +1,5 @@
 {
-	"curr_env": "dev"
+	"curr_env": "dev",
+	"database": "dev-database",
+	"user": "testuser"
 }

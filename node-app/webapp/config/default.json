@@ -1,3 +1,5 @@
 {
-	"curr_env": "default"
+	"curr_env": "default",
+	"database": "testapp",
+	"user": "root"
 }
