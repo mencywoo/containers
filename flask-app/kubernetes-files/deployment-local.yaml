@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: flask-mysql
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mency-flask
+    spec:
+      volumes:
+        - name: config-volume
+          hostPath:
+            # directory location on host
+            path: /Users/mency/Git/Kubernetes/containers/flask-config-dir
+      containers:
+        - name: mency-mysql-flask
+          image: mencywoo/mysql-flask
+          imagePullPolicy: IfNotPresent
+          env:
+            -
+              name:  CONFIG
+              value: /etc/config/mysql.cfg
+          ports:
+            -
+              containerPort: 5000
+          volumeMounts:
+          - mountPath: /etc/config
+            name: config-volume
