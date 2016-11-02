@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mency-node
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mency-node
+    spec:
+      volumes:
+        - name: config-volume
+          hostPath:
+            # directory location on host
+            path: /Users/mency/Git/Kubernetes/containers/node-app/webapp/config
+      containers:
+        - name: simple-node
+          image: mencywoo/simple-node
+          imagePullPolicy: IfNotPresent
+          env:
+            -
+              name:  NODE_ENV
+              value: production
+          ports:
+            -
+              containerPort: 8080
+          volumeMounts:
+          - mountPath: /opt/webapp/config
+            name: config-volume
