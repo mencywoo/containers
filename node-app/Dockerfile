@@ -4,10 +4,10 @@ RUN apt-get update
 
 RUN mkdir -p /opt/webapp
 WORKDIR /opt/webapp
-COPY package.json /opt/webapp/
+COPY ./webapp/package.json /opt/webapp/
 RUN npm install
 
-COPY ./index.js /opt/webapp/
+COPY ./webapp/index.js /opt/webapp/
 EXPOSE 8080
 
 CMD [ "node", "index.js" ]
