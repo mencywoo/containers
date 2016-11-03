@@ -1,24 +1,8 @@
 apiVersion: v1
-kind: Pod
+kind: ConfigMap
 metadata:
-  name: mency-mysql-flask
-spec:
-  containers:
-  - name: mency-mysql-flask
-    image: mencywoo/mysql-flask
-    imagePullPolicy: IfNotPresent
-    env:
-      -
-          name:  CONFIG
-          value: /etc/config/mysql_docker.cfg
-    ports:
-      -
-        containerPort: 5000
-    volumeMounts:
-    - mountPath: /etc/config
-      name: config-volume
-  volumes:
-  - name: config-volume
-    hostPath:
-      # directory location on host
-      path: /Users/mency/Git/Non-client/mysql/config-volume
+  name: simple-node-config
+data:
+  node-example: |
+    aconfig abv
+    bconfig abc

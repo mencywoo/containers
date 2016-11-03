@@ -1,5 +1,8 @@
 {
-	"curr_env": "dev",
-	"database": "dev-database",
-	"user": "testuser"
+    "curr_env": "dev",
+    "mysqldb": "menagerie",
+    "mysqluser": "admin",
+    "mysqlpassword": "LindenHof11",
+    "mysqlhost": "test.cnjtwjxkbmet.us-west-2.rds.amazonaws.com",
+    "mysqlconnectionlimit": 50
 }
