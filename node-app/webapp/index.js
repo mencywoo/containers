@@ -1,29 +1,29 @@
 
 var config  = require('config');
-var fs = require('fs');
 var url = require('url');
 var http = require('http');
 var express = require('express');
+var mysql = require('mysql');
+
 
 var standard_port=8080;
 
-var mysql = require('mysql');
-var pool = mysql.createPool( {
-      host  :  config.mysqlhost,
-      user  :  config.mysqluser,
-      password :  config.mysqlpassword,
-      database :  config.mysqldb
-});
-
-pool.getConnection( function(err, connection) {
-  connection.query('select count(*) as total from pet',  function(err, rows){
-    if (err) throw err;
-    else {
-      console.log('Number of pets: ' + rows[0].total)
-    }
-  });
-});
-
+// var pool = mysql.createPool( {
+//       host  :  config.mysqlhost,
+//       user  :  config.mysqluser,
+//       password :  config.mysqlpassword,
+//       database :  config.mysqldb
+// });
+//
+// pool.getConnection( function(err, connection) {
+//   connection.query('select count(*) as total from pet',  function(err, rows){
+//     if (err) throw err;
+//     else {
+//       console.log('Number of pets: ' + rows[0].total)
+//     }
+//   });
+// });
+//
 
 var server = express();
 
