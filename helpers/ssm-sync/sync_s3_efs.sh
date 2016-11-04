@@ -2,7 +2,7 @@
 
 ## sync_s3_efs.sh
 
-## example  ./sync_s3_efs.sh trinimbus-sandbox-mency-us-west-2  config/simple-node/static/test2.jpg
+## example  ./sync_s3_efs.sh trinimbus-sandbox-mency-us-west-2  config/simple-node/static/test2.jpg 92c31a68a93b1f0f755a5493b7895d77
 
 
 bucket="${1:-}"
