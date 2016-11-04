@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mency-node-static
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mency-node-static
+    spec:
+      volumes:
+        - name: static-volume
+          hostPath:
+            path: /Users/mency/Git/Kubernetes/containers/node-app/webapp/static
+        - name: config-volume
+          #  this assumes e.g. kubectl create configmap sample-node --from-file=./webapp/config/default.json  has been run earlier
+          configMap:
+            name: sample-node
+            items:
+            - key: default.json
+              path: default.json
+      containers:
+        - name: simple-node
+          image: mencywoo/simple-node
+          imagePullPolicy: Always
+          env:
+            -
+              name:  NODE_ENV
+              value: default
+          ports:
+            -
+              containerPort: 8080
+          volumeMounts:
+          - mountPath: /opt/webapp/config
+            name: config-volume
+          - mountPath: /opt/webapp/static
+            name: static-volume
