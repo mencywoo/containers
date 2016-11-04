@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.2",
+  "description": "sync_s3_efs",
+  "parameters": {
+    "bucket": {
+      "type": "String",
+      "description": "(Required) the bucket of the updated S3 object"
+    },
+    "key": {
+      "type": "String",
+      "description": "(Required) the key of the updated S3 object"
+    },
+    "key_md5": {
+      "type": "String",
+      "description": "(Required) the md5sum of the updated S3 object"
+    },
+    "mountPath": {
+      "type": "String",
+      "description": "(Optional) the location on the EFS mount.  Default is /opt/efs",
+      "default": "/opt/efs"
+    }
+  },
+  "runtimeConfig": {
+    "aws:runShellScript": {
+      "properties": [
+        {
+          "runCommand": ["/opt/scripts/sync_s3_efs.sh {{ bucket }} {{ key }}  {{ key_md5 }} {{ mountPath }}"],
+          "executionTimeout":["6000"]
+        }
+      ]
+    }
+  }
+}

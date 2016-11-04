@@ -1,0 +1,38 @@
+{
+  "Records": [
+    {
+      "eventVersion": "2.0",
+      "eventTime": "2016-11-03T23:29:33.600Z",
+      "requestParameters": {
+        "sourceIPAddress": "70.79.13.214"
+      },
+      "s3": {
+        "configurationId": "40785732-40a6-4c7f-863d-b59bf8d7b6e3",
+        "object": {
+          "eTag": "92c31a68a93b1f0f755a5493b7895d77",
+          "sequencer": "00581BC85D5FBB3660",
+          "key": "config/simple-node/static/test2.jpg",
+          "size": 146883
+        },
+        "bucket": {
+          "arn": "arn:aws:s3:::trinimbus-sandbox-mency-us-west-2",
+          "name": "trinimbus-sandbox-mency-us-west-2",
+          "ownerIdentity": {
+            "principalId": "A2XUXZUTRSOLUT"
+          }
+        },
+        "s3SchemaVersion": "1.0"
+      },
+      "responseElements": {
+        "x-amz-id-2": "4gG3tZVNoD3/7bqM8YckR64HTQZxbsdKT7HzW10PfkI/rZQfpT69gi7L1NHZWkJH",
+        "x-amz-request-id": "54113E9BED87FA25"
+      },
+      "awsRegion": "us-west-2",
+      "eventName": "ObjectCreated:Put",
+      "userIdentity": {
+        "principalId": "AWS:AROAIU3LWU2LKEMYDU334:mency@trinimbus.com"
+      },
+      "eventSource": "aws:s3"
+    }
+  ]
+}
