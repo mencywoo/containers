@@ -25,7 +25,7 @@ def lambda_handler(event, context):
 
     # find all instances in the kubernetes cluster
     applicable_instances=[]
-    ClusterInstances=ec2.describe_instances(Filters=[{ 'Name':'tag-value', 'Values': [ cluster_name ]}])['Reservations']
+    ClusterInstances=ec2.describe_instances(Filters=[{ 'Name':'tag-value', 'Values': [ cluster_name ]}, {'Name':'instance-state-code', 'Values': [ '16' ]  } ])['Reservations']
     for instanceItr in ClusterInstances:
       applicable_instances.append(instanceItr['Instances'][0]['InstanceId'])
 
