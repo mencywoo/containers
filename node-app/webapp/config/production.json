@@ -1,8 +1,0 @@
-{
-    "curr_env": "production",
-    "mysqldb": "menagerie",
-    "mysqluser": "admin",
-    "mysqlpassword": "LindenHof11",
-    "mysqlhost": "test.cnjtwjxkbmet.us-west-2.rds.amazonaws.com",
-    "mysqlconnectionlimit": 100
-}
