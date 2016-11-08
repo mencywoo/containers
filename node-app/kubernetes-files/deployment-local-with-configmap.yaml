@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mency-node-static
+  name: mency-node-rewrite
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: mency-node-static
+        app: mency-node-rewrite
     spec:
       volumes:
-        - name: static-volume
+        - name: image-volume
           hostPath:
-            path: /Users/mency/Git/Kubernetes/containers/node-app/webapp/static
+            path: /Users/mency/Git/Kubernetes/containers/node-app/webapp/public/images
         - name: config-volume
           #  this assumes e.g. kubectl create configmap sample-node --from-file=./webapp/config/default.json  has been run earlier
           configMap:
@@ -22,7 +22,7 @@ spec:
               path: default.json
       containers:
         - name: simple-node
-          image: mencywoo/simple-node
+          image: mencywoo/simple-node:rewrite
           imagePullPolicy: Always
           env:
             -
@@ -34,5 +34,5 @@ spec:
           volumeMounts:
           - mountPath: /opt/webapp/config
             name: config-volume
-          - mountPath: /opt/webapp/static
-            name: static-volume
+          - mountPath: /opt/webapp/public/images
+            name: image-volume
