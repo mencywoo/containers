@@ -1,8 +1,0 @@
-{
-    "curr_env": "default",
-    "mysqldb": "menagerie",
-    "mysqluser": "root",
-    "mysqlpassword": "LindenHof11",
-    "mysqlhost": "localhost",
-    "mysqlconnectionlimit": 50
-}

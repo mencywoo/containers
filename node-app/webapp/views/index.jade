@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  h2 Environment
+  table(style="width:60%")
+    tr
+      td= 'Environment'
+      td= curr_env
+    tr
+      td= 'Host'
+      td= curr_mysqlhost
+    tr
+      td= 'Database'
+      td= curr_mysqldb
+    tr
+      td= 'User'
+      td= curr_mysqluser
+  br
+  br
+  h2 Sample data
+  table(style="width:60%")
+    thead(align="left")
+      th Pet Name
+      th Owner
+      th Species
+    tbody
+      - each item in rows
+        tr
+          td= item.name
+          td= item.owner
+          td= item.species
+  br
+  br
+  h2 Image test
+  img(src=curr_image, style='width:700px')

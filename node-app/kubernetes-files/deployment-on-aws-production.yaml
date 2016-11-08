@@ -1,18 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mency-node-static
+  name: mency-node-rewrite-production
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: mency-node-static
+        app: mency-node-rewrite-production
     spec:
       volumes:
-        - name: static-volume
+        - name: image-volume
           hostPath:
-            path: /opt/efs/config/simple-node/static
+            path: /opt/efs/config/simple-node/images
         - name: config-volume
           #hostPath:
             #path: /Users/mency/Git/Kubernetes/containers/node-app/webapp/config
@@ -20,21 +20,21 @@ spec:
           configMap:
             name: sample-node
             items:
-            - key: dev.json
-              path: dev.json
+            - key: production.json
+              path: production.json
       containers:
         - name: simple-node
-          image: mencywoo/simple-node:latest
+          image: mencywoo/simple-node:rewrite
           imagePullPolicy: Always
           env:
             -
               name:  NODE_ENV
-              value: dev
+              value: production
           ports:
             -
               containerPort: 8080
           volumeMounts:
           - mountPath: /opt/webapp/config
             name: config-volume
-          - mountPath: /opt/webapp/static
-            name: static-volume
+          - mountPath: /opt/webapp/public/images
+            name: image-volume

@@ -1,25 +1,27 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mency-node-rewrite
+  name: mency-node-rewrite-dev
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: mency-node-rewrite
+        app: mency-node-rewrite-dev
     spec:
       volumes:
         - name: image-volume
           hostPath:
-            path: /Users/mency/Git/Kubernetes/containers/node-app/webapp/public/images
+            path: /opt/efs/config/simple-node/images
         - name: config-volume
+          #hostPath:
+            #path: /Users/mency/Git/Kubernetes/containers/node-app/webapp/config
           #  this assumes e.g. kubectl create configmap sample-node --from-file=./webapp/config/default.json  has been run earlier
           configMap:
             name: sample-node
             items:
-            - key: default.json
-              path: default.json
+            - key: dev.json
+              path: dev.json
       containers:
         - name: simple-node
           image: mencywoo/simple-node:rewrite
@@ -27,7 +29,7 @@ spec:
           env:
             -
               name:  NODE_ENV
-              value: default
+              value: dev
           ports:
             -
               containerPort: 8080
