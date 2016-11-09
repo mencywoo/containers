@@ -8,12 +8,10 @@ WORKDIR /opt/webapp
 
 COPY ./webapp/package.json /opt/webapp/
 
-
-
 RUN npm install
 
 COPY ./webapp/bin/  /opt/webapp/bin/
-COPY ./webapp/public/javascripts  /opt/webapp/public/javascripts
+#COPY ./webapp/public/javascripts  /opt/webapp/public/javascripts
 COPY ./webapp/public/stylesheets  /opt/webapp/public/stylesheets
 COPY ./webapp/routes/  /opt/webapp/routes/
 COPY ./webapp/views/  /opt/webapp/views/
