@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.2",
+  "description": "ssm_kubectl",
+  "parameters": {
+    "args": {
+      "type": "String",
+      "description": "(Required) the arguments to kubectl"
+    }
+  },
+  "runtimeConfig": {
+    "aws:runShellScript": {
+      "properties": [
+        {
+          "runCommand": ["/opt/scripts/ssm_kubectl.sh {{ args }}"],
+          "executionTimeout":["6000"]
+        }
+      ]
+    }
+  }
+}
